@@ -125,7 +125,7 @@ All components are located in `/root/`.
 
 - Hadoop: hadoop-2.9.2
 - PostgreSQL (for Hive Metastore): 10
-- Hive: 2.3.6
+- Hive: 2.3.7
 - Presto: 318
 - Ubuntu: 18.04
 

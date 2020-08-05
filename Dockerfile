@@ -25,9 +25,10 @@ RUN /root/hadoop-2.9.2/bin/hdfs namenode -format
 
 
 # Setup Hive
-RUN curl -s http://apache.mirrors.ionfish.org/hive/hive-2.3.6/apache-hive-2.3.6-bin.tar.gz | tar -xz -C /root
-COPY hive/hive-site.xml /root/apache-hive-2.3.6-bin/conf/hive-site.xml
-RUN curl -s https://jdbc.postgresql.org/download/postgresql-42.2.6.jar -o /root/apache-hive-2.3.6-bin/lib/postgresql-42.2.6.jar
+RUN curl -s http://apache.spinellicreations.com/hive/stable-2/apache-hive-2.3.7-bin.tar.gz | tar -xz -C /root && \
+  mv /root/apache-hive-2.3.7-bin /root/apache-hive
+COPY hive/hive-site.xml /root/apache-hive/conf/hive-site.xml
+RUN curl -s https://jdbc.postgresql.org/download/postgresql-42.2.6.jar -o /root/apache-hive/lib/postgresql-42.2.6.jar
 
 ## Setup Postgres
 RUN DEBIAN_FRONTEND=noninteractive apt install -y postgresql postgresql-contrib

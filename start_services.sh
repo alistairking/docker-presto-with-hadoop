@@ -10,7 +10,7 @@ su postgres -c '/usr/lib/postgresql/10/bin/pg_ctl -D /var/lib/postgresql/10/main
 sleep 2
 psql -U postgres -c "CREATE USER hiveuser WITH PASSWORD 'hiveuser';"
 psql -U postgres -c "CREATE DATABASE metastore;"
-/root/apache-hive-2.3.6-bin/bin/schematool -dbType postgres -initSchema
+/root/apache-hive/bin/schematool -dbType postgres -initSchema
 
 
 # Setup the HDFS directories needed for Hive
@@ -46,9 +46,9 @@ sed "s~{AWS_ACCESS_KEY}~$AWS_ACCESS_KEY_ID~" $PRESTO_HOME/etc/catalog/hive.prope
 $PRESTO_HOME/bin/launcher.py start
 
 # Start Hive Metastore
-nohup /root/apache-hive-2.3.6-bin/bin/hive --service metastore &
-#/root/apache-hive-2.3.6-bin/bin/hive --service metastore
+nohup /root/apache-hive/bin/hive --service metastore &
+#/root/apache-hive/bin/hive --service metastore
 
 # Start Hive Service (this keeps running in the foreground)
 sleep 10    # wait for metastore to start first
-/root/apache-hive-2.3.6-bin/bin/hiveserver2
+/root/apache-hive/bin/hiveserver2
