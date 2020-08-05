@@ -1,7 +1,7 @@
 FROM ubuntu:18.04
 
 RUN apt update
-RUN apt install -y openjdk-8-jre python less curl openssh-server openssh-client
+RUN apt install -y openjdk-8-jre python less curl
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
 
 # Setup Hadoop
@@ -11,18 +11,10 @@ COPY hadoop/hadoop-env.sh /root/hadoop-2.9.2/etc/hadoop/hadoop-env.sh
 COPY hadoop/core-site.xml /root/hadoop-2.9.2/etc/hadoop/core-site.xml
 COPY hadoop/hdfs-site.xml /root/hadoop-2.9.2/etc/hadoop/hdfs-site.xml
 
-## ssh without password
-RUN ssh-keygen -t rsa -P '' -f /root/.ssh/id_rsa
-RUN cat /root/.ssh/id_rsa.pub >> /root/.ssh/authorized_keys
-RUN chmod 0600 /root/.ssh/authorized_keys
-COPY ssh_config /root/.ssh/config
-RUN chmod 400 /root/.ssh/config
-
 ENV HADOOP_HOME /root/hadoop-2.9.2
 
 ## Format namenode
 RUN /root/hadoop-2.9.2/bin/hdfs namenode -format
-
 
 # Setup Hive
 RUN curl -s http://apache.spinellicreations.com/hive/stable-2/apache-hive-2.3.7-bin.tar.gz | tar -xz -C /root && \
