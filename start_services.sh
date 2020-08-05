@@ -39,7 +39,8 @@ sed "s/{JAVA_HEAP_SIZE}/$use_jvm_heap/" $PRESTO_HOME/etc/jvm.config.template \
     > $PRESTO_HOME/etc/jvm.config
 
 sed "s~{AWS_ACCESS_KEY}~$AWS_ACCESS_KEY_ID~" $PRESTO_HOME/etc/catalog/hive.properties.template | \
-    sed "s~{AWS_SECRET_ACCESS_KEY}~$AWS_SECRET_ACCESS_KEY~" \
+    sed "s~{AWS_SECRET_ACCESS_KEY}~$AWS_SECRET_ACCESS_KEY~" | \
+    sed "s~{S3_ENDPOINT}~$S3_ENDPOINT~"
     > $PRESTO_HOME/etc/catalog/hive.properties
 
 $PRESTO_HOME/bin/launcher.py start
