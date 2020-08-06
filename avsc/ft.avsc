@@ -1,0 +1,63 @@
+{
+  "type" : "record",
+  "name" : "flowtuple",
+  "namespace" : "org.caida.corsaro",
+  "fields" : [ {
+    "name" : "time",
+    "type" : "long"
+  }, {
+    "name" : "src_ip",
+    "type" : "long"
+  }, {
+    "name" : "dst_ip",
+    "type" : "long"
+  }, {
+    "name" : "src_port",
+    "type" : "int"
+  }, {
+    "name" : "dst_port",
+    "type" : "int"
+  }, {
+    "name" : "protocol",
+    "type" : "int"
+  }, {
+    "name" : "ttl",
+    "type" : "int"
+  }, {
+    "name" : "tcp_flags",
+    "type" : "int"
+  }, {
+    "name" : "ip_len",
+    "type" : "int"
+  }, {
+    "name" : "tcp_synlen",
+    "type" : "int"
+  }, {
+    "name" : "tcp_synwinlen",
+    "type" : "int"
+  }, {
+    "name" : "packet_cnt",
+    "type" : "long"
+  }, {
+    "name" : "is_spoofed",
+    "type" : "int"
+  }, {
+    "name" : "is_masscan",
+    "type" : "int"
+  }, {
+    "name" : "maxmind_continent",
+    "type" : "string"
+  }, {
+    "name" : "maxmind_country",
+    "type" : "string"
+  }, {
+    "name" : "netacq_continent",
+    "type" : "string"
+  }, {
+    "name" : "netacq_country",
+    "type" : "string"
+  }, {
+    "name" : "prefix2asn",
+    "type" : "long"
+  } ]
+}

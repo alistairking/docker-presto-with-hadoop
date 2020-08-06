@@ -48,6 +48,8 @@ COPY presto/config.properties.template $PRESTO_HOME/etc/config.properties.templa
 COPY presto/log.properties $PRESTO_HOME/etc/log.properties
 COPY presto/node.properties $PRESTO_HOME/etc/node.properties
 
+# Copy our schemas (hax)
+COPY avsc/*.avsc /root/avsc/
 
 # Copy setup script
 COPY start_services.sh /root/start_services.sh
