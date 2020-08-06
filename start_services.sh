@@ -1,4 +1,7 @@
 #!/bin/bash
+set -e
+
+/etc/init.d/ssh start
 
 # Start HDFS
 /root/hadoop-2.9.2/sbin/start-dfs.sh
