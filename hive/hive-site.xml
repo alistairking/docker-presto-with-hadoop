@@ -23,4 +23,13 @@
         <name>hive.server2.thrift.bind.host</name>
         <value>0.0.0.0</value>
     </property>
+
+    <property>
+        <name>fs.s3a.endpoint</name>
+        <value>https://hermes.caida.org</value>
+    </property>
+    <property>
+        <name>fs.s3a.path.style.access</name>
+        <value>true</value>
+    </property>
 </configuration>
